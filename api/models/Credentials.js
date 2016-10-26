@@ -1,5 +1,5 @@
 /**
- * User.js
+ * Credentials.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -8,27 +8,17 @@
 module.exports = {
 
   attributes: {
-
-      name: {
-          type: 'string',
-          required: true
-      },
-
-      email: {
-          type: 'string',
-          email: true
-      },
-
-      state: {
+      client_name: {
           type: 'string'
       },
-
-      access_token: {
-        type: 'mediumtext'
+      client_id: {
+          type: 'string'
       },
-
-      refresh_token: {
-          type: 'mediumtext'
+      password: {
+          type: 'string'
+      },
+      private_key: {
+          type: 'string'
       }
   }
 };

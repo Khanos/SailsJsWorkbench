@@ -1,0 +1,25 @@
+<script type="text/javascript">
+    function getAuth(url) {
+        var _url = url.replace(/&amp;/g, '&');
+        var left = screen.width / 2 - 700 / 2;
+        var win = window.open(_url, "popUp", 'width=500, height=600, top=20, left=' + left);
+        var pollTimer = window.setInterval(function() {
+            try {
+                if (win.document.URL != _url) {
+                    window.clearInterval(pollTimer);
+                    window.location.reload();
+                }
+            } catch (e) {}
+        }, 500);
+    }
+</script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 center">
+            <br><br><br>
+            <label for="access">Request user consent: </label>
+            <button type="button" name="button" class="btn btn-primary" onClick="getAuth('<%= data.url %>')">Grant</button>
+        </div>
+    </div>
+</div>

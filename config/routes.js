@@ -34,7 +34,7 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+},
 
   /***************************************************************************
   *                                                                          *
@@ -45,5 +45,5 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-
+  'oauth2callback/bingads': 'Oauth2callbackController.bingads'
 };
