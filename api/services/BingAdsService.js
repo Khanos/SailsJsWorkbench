@@ -36,15 +36,13 @@ module.exports = {
                     }
                 };
                 request(options, function (err, response, body) {
-                    console.log(response.body);
-                    console.log(response.statusCode);
                     if (!err && response.statusCode == 200) {
                         var info = JSON.parse(body);
                         oauth_data.access_token = info.access_token;
                         oauth_data.isAuthenticated = true;
                         oauth_data.url = url.format(LOGOUT_OAUTH_URL+'?'+
-                            'client_id='+credentials[0].client_id+'&'+
-                            'redirect_uri='+REDIRECT_URI);
+                            '{client_id='+credentials[0].client_id+'}&'+
+                            '{redirect_uri='+REDIRECT_URI+'}');
                         next(oauth_data);
                     } else if (!err && response.statusCode == 400) {
                         oauth_data.access_token = null;
@@ -89,7 +87,7 @@ module.exports = {
                         if (err) {
                             res.serverError(err);
                         }
-                        console.log('Updated user to have name ' + updated[0]);
+                        console.log('Updated user:' + updated[0]);
                         next();
                     });
                 }

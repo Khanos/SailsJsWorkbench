@@ -9,6 +9,7 @@
 module.exports = {
 	bingads: function (req, res) {
         var code = req.query.code;
+        console.log(req.query);
         BingAdsService.codeExchange(14, code, function (info) {
             res.view('oauth2callback', {message:'The authorization has been granted'});
         });

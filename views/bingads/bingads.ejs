@@ -7,7 +7,8 @@
             try {
                 if (win.document.URL != _url) {
                     window.clearInterval(pollTimer);
-                    window.location.reload();
+                    window.localStorage.clear();
+                    window.location.reload(true);
                 }
             } catch (e) {}
         }, 500);
